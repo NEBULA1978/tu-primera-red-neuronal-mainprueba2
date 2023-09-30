@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ringa Tech - Red neuronal</title>
+    <style type="text/css">
+        /* Your existing styles here */
+        /* Add styles for sections */
+        #nav {
+            background-color: white; /* Default background color for navigation */
+        }
+
+        #aside {
+            background-color: white; /* Default background color for aside */
+        }
+
+        #header {
+            background-color: white; /* Default background color for header */
+        }
+
+        #footer {
+            background-color: white; /* Default background color for footer */
+        }
+
+        /* Style for jscolor input */
+        .jscolor {
+            width: 100%;
+            height: 40px; /* Smaller height for the selectors */
+            font-size: 14px; /* Smaller font size for the selectors */
+            background-image: linear-gradient(to right, rgb(55, 255, 49) 0%, rgb(55, 255, 49) 30px, rgba(0, 0, 0, 0) 31px, rgba(0, 0, 0, 0) 100%);
+            background-position: left top, left top;
+            background-size: auto, 32px 16px;
+            background-repeat: repeat-y, repeat-y;
+            background-origin: padding-box, padding-box;
+            padding-left: 20px; /* Reduced left padding to make them take less space */
+        }
+
+        /* Style for section forms */
+        .section-form {
+            display: inline-block; /* Display as inline-block to limit width */
+            width: 200px; /* Set the desired width */
+            margin-right: 10px; /* Add some space between sections if needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sitio">
+        Mi sitio web
+        <p>Hola Probando</p>
+        <form class="section-form newsletter">
+            <input data-jscolor="{value:'#CC66FF'}" oninput="update(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31">
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+    <script src="https://unpkg.com/brain.js"></script>
+
+    <script type="text/javascript">
+        // Your existing JavaScript code here
+        function update(color) {
+            // Your existing color update logic here
+            // Example of changing background color for the navigation section:
+            document.getElementById("nav").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateAside(color) {
+            document.getElementById("aside").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateHeader(color) {
+            document.getElementById("header").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateFooter(color) {
+            document.getElementById("footer").style.backgroundColor = color.toHEXString();
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <h2>Navigation</h2>
+    </nav>
+
+    <!-- Aside -->
+    <aside id="aside">
+        <h2>Aside</h2>
+        <form class="section-form">
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateAside(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31">
+        </form>
+    </aside>
+
+    <!-- Header -->
+    <header id="header">
+        <h2>Header</h2>
+        <form class="section-form">
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateHeader(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31">
+        </form>
+    </header>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <h2>Footer</h2>
+        <form class="section-form">
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateFooter(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31">
+        </form>
+    </footer>
+</body>
+
+</html>
