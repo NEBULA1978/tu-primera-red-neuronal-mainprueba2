@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ringa Tech - Red neuronal</title>
+    <style type="text/css">
+        /* Your existing styles here */
+        /* Add styles for sections */
+        #nav {
+            background-color: white; /* Default background color for navigation */
+        }
+
+        #aside {
+            background-color: white; /* Default background color for aside */
+        }
+
+        #header {
+            background-color: white; /* Default background color for header */
+        }
+
+        #footer {
+            background-color: white; /* Default background color for footer */
+        }
+
+        /* Style for jscolor input */
+        .jscolor {
+            width: 100%;
+            height: 100px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sitio">
+        Mi sitio web
+        <p>Hola Probando</p>
+        <form class="newsletter">
+            <input data-jscolor="{value:'#CC66FF'}" oninput="update(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31" style="background-image: linear-gradient(to right, rgb(55, 255, 49) 0%, rgb(55, 255, 49) 30px, rgba(0, 0, 0, 0) 31px, rgba(0, 0, 0, 0) 100%), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAjCAYAAADG1RdTAAABMUlEQVRoQ+2aKw6DQBRFby04BA4SHII1IFgMu2EB7IK0HsMqMCgMIQQzE4Jq+SSENO200zEVF828wOHcl5kXLnme32F4CSFQ17VhFcB1XXieZ1ynaRqM46hVJwgCJEmC5V1kVVXXdfGFcHaGJzhigXMjnJNbhKMIGuEQDmDYkNlzniVirBgrxkq5wWPPUeAhHMLROh4dN9McmkNzDgJ/MrLgDvmrHXKWZcbDrmmaMAzDbxk4rbIsC47jGNfp+x7zPGvV8X0fcRxDSinKstznOWmaGsOxbRthGGo9zKubu65D27bGddZzki7kNdJRFG1wiqIgnPNXIByFk4RDOPuwnD3njQmE82FwRXNojv62h7FirPStWVfQHJpDcw4CPHgqZCAcwvmtV/yJOXKZ52x/dj0AQ/uhdJfatt0AAAAASUVORK5CYII=&quot;) !important; background-position: left top, left top !important; background-size: auto, 32px 16px !important; background-repeat: repeat-y, repeat-y !important; background-origin: padding-box, padding-box !important; padding-left: 40px !important;"
+                id="navColorPicker">
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+    <script src="https://unpkg.com/brain.js"></script>
+
+    <script type="text/javascript">
+        // Your existing JavaScript code here
+        function update(color) {
+            // Your existing color update logic here
+            // Example of changing background color for the navigation section:
+            document.getElementById("nav").style.backgroundColor = color.toHEXString();
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <h2>Navigation</h2>
+    </nav>
+
+    <!-- Aside -->
+    <aside id="aside">
+        <h2>Aside</h2>
+        <form>
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateAside(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31" style="background-image: linear-gradient(to right, rgb(55, 255, 49) 0%, rgb(55, 255, 49) 30px, rgba(0, 0, 0, 0) 31px, rgba(0, 0, 0, 0) 100%), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAjCAYAAADG1RdTAAABMUlEQVRoQ+2aKw6DQBRFby04BA4SHII1IFgMu2EB7IK0HsMqMCgMIQQzE4Jq+SSENO200zEVF828wOHcl5kXLnme32F4CSFQ17VhFcB1XXieZ1ynaRqM46hVJwgCJEmC5V1kVVXXdfGFcHaGJzhigXMjnJNbhKMIGuEQDmDYkNlzniVirBgrxkq5wWPPUeAhHMLROh4dN9McmkNzDgJ/MrLgDvmrHXKWZcbDrmmaMAzDbxk4rbIsC47jGNfp+x7zPGvV8X0fcRxDSinKstznOWmaGsOxbRthGGo9zKubu65D27bGddZzki7kNdJRFG1wiqIgnPNXIByFk4RDOPuwnD3njQmE82FwRXNojv62h7FirPStWVfQHJpDcw4CPHgqZCAcwvmtV/yJOXKZ52x/dj0AQ/uhdJfatt0AAAAASUVORK5CYII=&quot;) !important; background-position: left top, left top !important; background-size: auto, 32px 16px !important; background-repeat: repeat-y, repeat-y !important; background-origin: padding-box, padding-box !important; padding-left: 40px !important;"
+                id="asideColorPicker">
+        </form>
+    </aside>
+
+    <!-- Header -->
+    <header id="header">
+        <h2>Header</h2>
+        <form>
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateHeader(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31" style="background-image: linear-gradient(to right, rgb(55, 255, 49) 0%, rgb(55, 255, 49) 30px, rgba(0, 0, 0, 0) 31px, rgba(0, 0, 0, 0) 100%), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAjCAYAAADG1RdTAAABMUlEQVRoQ+2aKw6DQBRFby04BA4SHII1IFgMu2EB7IK0HsMqMCgMIQQzE4Jq+SSENO200zEVF828wOHcl5kXLnme32F4CSFQ17VhFcB1XXieZ1ynaRqM46hVJwgCJEmC5V1kVVXXdfGFcHaGJzhigXMjnJNbhKMIGuEQDmDYkNlzniVirBgrxkq5wWPPUeAhHMLROh4dN9McmkNzDgJ/MrLgDvmrHXKWZcbDrmmaMAzDbxk4rbIsC47jGNfp+x7zPGvV8X0fcRxDSinKstznOWmaGsOxbRthGGo9zKubu65D27bGddZzki7kNdJRFG1wiqIgnPNXIByFk4RDOPuwnD3njQmE82FwRXNojv62h7FirPStWVfQHJpDcw4CPHgqZCAcwvmtV/yJOXKZ52x/dj0AQ/uhdJfatt0AAAAASUVORK5CYII=&quot;) !important; background-position: left top, left top !important; background-size: auto, 32px 16px !important; background-repeat: repeat-y, repeat-y !important; background-origin: padding-box, padding-box !important; padding-left: 40px !important;"
+                id="headerColorPicker">
+        </form>
+    </header>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <h2>Footer</h2>
+        <form>
+            <input data-jscolor="{value:'#CC66FF'}" oninput="updateFooter(this.jscolor)" class="jscolor"
+                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                data-current-color="#37FF31" style="background-image: linear-gradient(to right, rgb(55, 255, 49) 0%, rgb(55, 255, 49) 30px, rgba(0, 0, 0, 0) 31px, rgba(0, 0, 0, 0) 100%), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAAAjCAYAAADG1RdTAAABMUlEQVRoQ+2aKw6DQBRFby04BA4SHII1IFgMu2EB7IK0HsMqMCgMIQQzE4Jq+SSENO200zEVF828wOHcl5kXLnme32F4CSFQ17VhFcB1XXieZ1ynaRqM46hVJwgCJEmC5V1kVVXXdfGFcHaGJzhigXMjnJNbhKMIGuEQDmDYkNlzniVirBgrxkq5wWPPUeAhHMLROh4dN9McmkNzDgJ/MrLgDvmrHXKWZcbDrmmaMAzDbxk4rbIsC47jGNfp+x7zPGvV8X0fcRxDSinKstznOWmaGsOxbRthGGo9zKubu65D27bGddZzki7kNdJRFG1wiqIgnPNXIByFk4RDOPuwnD3njQmE82FwRXNojv62h7FirPStWVfQHJpDcw4CPHgqZCAcwvmtV/yJOXKZ52x/dj0AQ/uhdJfatt0AAAAASUVORK5CYII=&quot;) !important; background-position: left top, left top !important; background-size: auto, 32px 16px !important; background-repeat: repeat-y, repeat-y !important; background-origin: padding-box, padding-box !important; padding-left: 40px !important;"
+                id="footerColorPicker">
+        </form>
+    </footer>
+
+    <script type="text/javascript">
+        // Your existing JavaScript code here
+        function update(color) {
+            // Your existing color update logic here
+            // Example of changing background color for the navigation section:
+            document.getElementById("nav").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateAside(color) {
+            document.getElementById("aside").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateHeader(color) {
+            document.getElementById("header").style.backgroundColor = color.toHEXString();
+        }
+
+        function updateFooter(color) {
+            document.getElementById("footer").style.backgroundColor = color.toHEXString();
+        }
+    </script>
+</body>
+
+</html>
