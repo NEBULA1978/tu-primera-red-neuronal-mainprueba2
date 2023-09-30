@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Ringa Tech - Red neuronal</title>
-    <style type="text/css">
+    <head>
+        <title>Ringa Tech - Red neuronal</title>
+        <style type="text/css">
         /* Your existing styles here */
         /* Add styles for sections */
         #nav {
@@ -42,23 +42,28 @@
             margin-right: 10px; /* Add some space between sections if needed */
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <div id="sitio">
-        Mi sitio web
-        <p>Hola Probando</p>
-        <form class="section-form newsletter">
-            <input data-jscolor="{value:'#CC66FF'}" oninput="update(this.jscolor)" class="jscolor"
-                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
-                data-current-color="#37FF31">
-        </form>
-    </div>
+    <body>
+        <div id="sitio">
+            Mi sitio web
+            <p>Hola Probando</p>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
-    <script src="https://unpkg.com/brain.js"></script>
+            <form class="section-form newsletter">
+                <input data-jscolor="{value:'#CC66FF'}"
+                    oninput="update(this.jscolor)" class="jscolor"
+                    autocomplete="off" autocorrect="off" autocapitalize="none"
+                    spellcheck="false"
+                    data-current-color="#37FF31">
+            </form>
 
-    <script type="text/javascript">
+        </div>
+
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+        <script src="https://unpkg.com/brain.js"></script>
+
+        <script type="text/javascript">
         // Your existing JavaScript code here
         function update(color) {
             // Your existing color update logic here
@@ -79,40 +84,87 @@
         }
     </script>
 
-    <!-- Navigation -->
-    <nav id="nav">
-        <h2>Navigation</h2>
-    </nav>
+        <!-- Navigation -->
+        <nav id="nav">
+            <h2>Navigation</h2>
 
-    <!-- Aside -->
-    <aside id="aside">
-        <h2>Aside</h2>
-        <form class="section-form">
-            <input data-jscolor="{value:'#CC66FF'}" oninput="updateAside(this.jscolor)" class="jscolor"
-                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
-                data-current-color="#37FF31">
-        </form>
-    </aside>
+            <label>Introduce el primer número:</label>
+            <input type="number" id="numero1" min="1">
 
-    <!-- Header -->
-    <header id="header">
-        <h2>Header</h2>
-        <form class="section-form">
-            <input data-jscolor="{value:'#CC66FF'}" oninput="updateHeader(this.jscolor)" class="jscolor"
-                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
-                data-current-color="#37FF31">
-        </form>
-    </header>
+            <label>Introduce el segundo número:</label>
+            <input type="number" id="numero2" min="1">
 
-    <!-- Footer -->
-    <footer id="footer">
-        <h2>Footer</h2>
-        <form class="section-form">
-            <input data-jscolor="{value:'#CC66FF'}" oninput="updateFooter(this.jscolor)" class="jscolor"
-                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
-                data-current-color="#37FF31">
-        </form>
-    </footer>
-</body>
+            <button onclick="compararNumeros()">Comparar números</button>
+
+            <p id="resultado"></p>
+        </nav>
+
+        <!-- Aside -->
+        <aside id="aside">
+            <h2>Aside</h2>
+            <form class="section-form">
+                <input data-jscolor="{value:'#CC66FF'}"
+                    oninput="updateAside(this.jscolor)" class="jscolor"
+                    autocomplete="off" autocorrect="off" autocapitalize="none"
+                    spellcheck="false"
+                    data-current-color="#37FF31">
+            </form>
+        </aside>
+
+        <!-- Header -->
+        <header id="header">
+            <h2>Header</h2>
+            <form class="section-form">
+                <input data-jscolor="{value:'#CC66FF'}"
+                    oninput="updateHeader(this.jscolor)" class="jscolor"
+                    autocomplete="off" autocorrect="off" autocapitalize="none"
+                    spellcheck="false"
+                    data-current-color="#37FF31">
+            </form>
+        </header>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <h2>Footer</h2>
+            <form class="section-form">
+                <input data-jscolor="{value:'#CC66FF'}"
+                    oninput="updateFooter(this.jscolor)" class="jscolor"
+                    autocomplete="off" autocorrect="off" autocapitalize="none"
+                    spellcheck="false"
+                    data-current-color="#37FF31">
+            </form>
+        </footer>
+
+        <script>
+        function compararNumeros() {
+          var numero1Elemento = document.getElementById('numero1');
+          var numero2Elemento = document.getElementById('numero2');
+          var numero1 = parseInt(numero1Elemento.value);
+          var numero2 = parseInt(numero2Elemento.value);
+          var resultadoElemento = document.getElementById('resultado');
+    
+          // Validar que los números son válidos
+          if (isNaN(numero1) || isNaN(numero2) || numero1 <= 0 || numero2 <= 0) {
+            resultadoElemento.textContent = 'Introduce números válidos';
+            return;
+          }
+    
+          if (numero1 == numero2) {
+            resultadoElemento.textContent = 'LOS NÚMEROS SON IGUALES';
+          } else if (numero1 > numero2) {
+            resultadoElemento.textContent = 'EL NÚMERO MAYOR ES: ' + numero1 + ' EL NÚMERO MENOR ES: ' + numero2;
+          } else {
+            resultadoElemento.textContent = 'EL NÚMERO MAYOR ES: ' + numero2 + ' EL NÚMERO MENOR ES: ' + numero1;
+          }
+    
+          // Borrar los valores de los inputs
+          numero1Elemento.value = '';
+          numero2Elemento.value = '';
+    
+          // Enfocar en el primer input
+          numero1Elemento.focus();
+        }
+    </script>
+    </body>
 
 </html>
