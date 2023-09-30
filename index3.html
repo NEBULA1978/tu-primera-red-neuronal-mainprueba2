@@ -51,7 +51,7 @@
 
         <form class="section-form newsletter">
             <input data-jscolor="{value:'#CC66FF'}"
-                oninput="update(this.jscolor)" class="jscolor"
+                oninput="updateColor(this.jscolor)" class="jscolor"
                 autocomplete="off" autocorrect="off" autocapitalize="none"
                 spellcheck="false"
                 data-current-color="#37FF31">
@@ -65,51 +65,51 @@
 
     <script type="text/javascript">
         // Your existing JavaScript code here
-        function update(color) {
+        function updateColor(color) {
             // Your existing color update logic here
             // Example of changing background color for the navigation section:
             document.getElementById("nav").style.backgroundColor = color.toHEXString();
         }
 
-        function updateAside(color) {
+        function updateAsideColor(color) {
             document.getElementById("aside").style.backgroundColor = color.toHEXString();
         }
 
-        function updateHeader(color) {
+        function updateHeaderColor(color) {
             document.getElementById("header").style.backgroundColor = color.toHEXString();
         }
 
-        function updateFooter(color) {
+        function updateFooterColor(color) {
             document.getElementById("footer").style.backgroundColor = color.toHEXString();
         }
 
-        function compararNumeros() {
-            var numero1Elemento = document.getElementById('numero1');
-            var numero2Elemento = document.getElementById('numero2');
-            var numero1 = parseInt(numero1Elemento.value);
-            var numero2 = parseInt(numero2Elemento.value);
-            var resultadoElemento = document.getElementById('resultado');
+        function compareNumbers() {
+            var num1Element = document.getElementById('numero1');
+            var num2Element = document.getElementById('numero2');
+            var num1 = parseInt(num1Element.value);
+            var num2 = parseInt(num2Element.value);
+            var resultElement = document.getElementById('result');
 
-            // Validar que los números son válidos
-            if (isNaN(numero1) || isNaN(numero2) || numero1 <= 0 || numero2 <= 0) {
-                resultadoElemento.textContent = 'Introduce números válidos';
+            // Validate that the numbers are valid
+            if (isNaN(num1) || isNaN(num2) || num1 <= 0 || num2 <= 0) {
+                resultElement.textContent = 'Introduce números válidos';
                 return;
             }
 
-            if (numero1 == numero2) {
-                resultadoElemento.textContent = 'LOS NÚMEROS SON IGUALES';
-            } else if (numero1 > numero2) {
-                resultadoElemento.textContent = 'EL NÚMERO MAYOR ES: ' + numero1 + ' EL NÚMERO MENOR ES: ' + numero2;
+            if (num1 === num2) {
+                resultElement.textContent = 'LOS NÚMEROS SON IGUALES';
+            } else if (num1 > num2) {
+                resultElement.textContent = 'EL NÚMERO MAYOR ES: ' + num1 + ' EL NÚMERO MENOR ES: ' + num2;
             } else {
-                resultadoElemento.textContent = 'EL NÚMERO MAYOR ES: ' + numero2 + ' EL NÚMERO MENOR ES: ' + numero1;
+                resultElement.textContent = 'EL NÚMERO MAYOR ES: ' + num2 + ' EL NÚMERO MENOR ES: ' + num1;
             }
 
-            // Borrar los valores de los inputs
-            numero1Elemento.value = '';
-            numero2Elemento.value = '';
+            // Clear the input values
+            num1Element.value = '';
+            num2Element.value = '';
 
-            // Enfocar en el primer input
-            numero1Elemento.focus();
+            // Focus on the first input
+            num1Element.focus();
         }
     </script>
 
@@ -123,9 +123,9 @@
         <label>Introduce el segundo número:</label>
         <input type="number" id="numero2" min="1">
 
-        <button onclick="compararNumeros()">Comparar números</button>
+        <button onclick="compareNumbers()">Comparar números</button>
 
-        <p id="resultadoNav"></p>
+        <p id="result"></p>
     </nav>
 
     <!-- Aside -->
@@ -133,17 +133,17 @@
         <h2>Aside</h2>
         <form class="section-form">
             <input data-jscolor="{value:'#CC66FF'}"
-                oninput="updateAside(this.jscolor)" class="jscolor"
+                oninput="updateAsideColor(this.jscolor)" class="jscolor"
                 autocomplete="off" autocorrect="off" autocapitalize="none"
                 spellcheck="false"
                 data-current-color="#37FF31">
         </form>
 
-        <label>Suma y media de números,Introduce numeros :</label>
+        <label>Suma y media de números, Introduce números:</label>
         <input type="number" id="input-numero" autofocus>
-        <button onclick="agregarNumero()">Agregar</button>
-        <button onclick="calcular()">Calcular</button>
-        <p id="resultadoAside"></p>
+        <button onclick="addNumber()">Agregar</button>
+        <button onclick="calculate()">Calcular</button>
+        <p id="asideResult"></p>
     </aside>
 
     <!-- Header -->
@@ -151,11 +151,19 @@
         <h2>Header</h2>
         <form class="section-form">
             <input data-jscolor="{value:'#CC66FF'}"
-                oninput="updateHeader(this.jscolor)" class="jscolor"
+                oninput="updateHeaderColor(this.jscolor)" class="jscolor"
                 autocomplete="off" autocorrect="off" autocapitalize="none"
                 spellcheck="false"
                 data-current-color="#37FF31">
         </form>
+
+        <div>
+            <p>Comprobar si es Palíndromo</p>
+            <label for="texto">Introduce una cadena de texto:</label>
+            <input type="text" id="texto">
+        </div>
+        <button onclick="checkPalindrome()">Comprobar</button>
+        <p id="palindrome"></p>
     </header>
 
     <!-- Footer -->
@@ -163,7 +171,7 @@
         <h2>Footer</h2>
         <form class="section-form">
             <input data-jscolor="{value:'#CC66FF'}"
-                oninput="updateFooter(this.jscolor)" class="jscolor"
+                oninput="updateFooterColor(this.jscolor)" class="jscolor"
                 autocomplete="off" autocorrect="off" autocapitalize="none"
                 spellcheck="false"
                 data-current-color="#37FF31">
@@ -173,43 +181,58 @@
     <script>
         'use strict';
 
-        var numeros = [];
+        var numbers = [];
 
-        function agregarNumero() {
-            var inputNumero = document.getElementById('input-numero');
-            var numero = parseInt(inputNumero.value);
+        function addNumber() {
+            var inputNumber = document.getElementById('input-numero');
+            var number = parseInt(inputNumber.value);
 
-            if (isNaN(numero)) {
+            if (isNaN(number)) {
                 alert('Introduce un número válido.');
-                inputNumero.value = '';
-                inputNumero.focus();
+                inputNumber.value = '';
+                inputNumber.focus();
                 return;
             }
 
-            numeros.push(numero);
-            inputNumero.value = '';
-            inputNumero.focus();
+            numbers.push(number);
+            inputNumber.value = '';
+            inputNumber.focus();
         }
 
-        function calcular() {
-            if (numeros.length === 0) {
+        function calculate() {
+            if (numbers.length === 0) {
                 alert('Introduce al menos un número.');
                 return;
             }
 
-            var suma = 0;
-            var contador = 0;
+            var sum = 0;
+            var counter = 0;
 
-            for (var i = 0; i < numeros.length; i++) {
-                suma += numeros[i];
-                contador++;
+            for (var i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+                counter++;
             }
 
-            var resultado = document.getElementById('resultadoAside');
-            resultado.innerHTML = `La suma de todos los numeros es: ${suma}<br>
-                            La media de todos los numeros es: ${suma / contador}`;
+            var result = document.getElementById('asideResult');
+            result.innerHTML = `La suma de todos los números es: ${sum}<br>
+                        La media de todos los números es: ${sum / counter}`;
 
-            numeros = [];
+            numbers = [];
+        }
+    </script>
+
+    <!-- Palindrome Exercise -->
+
+    <script>
+        function checkPalindrome() {
+            const text = document.getElementById("texto").value;
+            const reversed = text
+                .split('') // Split the text into an array
+                .reverse() // Reverse the array
+                .join(''); // Join the array elements back into a string
+
+            const isPalindrome = reversed === text;
+            document.getElementById("palindrome").textContent = isPalindrome ? "Es un palíndromo" : "No es un palíndromo";
         }
     </script>
 </body>
